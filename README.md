@@ -16,5 +16,5 @@ Or one of these for the library:
 The command-line utility will check the provided arguments for validity and will sometimes infer values for options that are not provided by the user.
 
 Command-line examples:
-- `rs --length 15 --minlower 4 --maxwhitespace 0 //generate a 15-character long string with at least 4 lowercase letters and no whitespace.`
-- `rs --minwhitespace 10 //generate a string of 10 whitespace characters. (string length defaults to 10 characters.)`
+- `rs --length 15 --minlower 4 --maxwhitespace 0` //generate a 15-character long string with at least 4 lowercase letters and no whitespace.
+- `rs --minwhitespace 10` //generate a string of 10 whitespace characters. (string length defaults to 10 characters.)
