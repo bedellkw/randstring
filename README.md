@@ -18,3 +18,4 @@ The command-line utility will check the provided arguments for validity and will
 Command-line examples:
 - `rs --length 15 --minlower 4 --maxwhitespace 0` //generate a 15-character long string with at least 4 lowercase letters and no whitespace.
 - `rs --minwhitespace 10` //generate a string of 10 whitespace characters. (string length defaults to 10 characters.)
+- `rs --length 20 --chars ADOGCATBIRDTREE` //generate a string of 20 characters pulled from the provided "chars" string
