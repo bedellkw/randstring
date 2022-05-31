@@ -44,19 +44,19 @@ string PopulateTypeString(string l, string u)
 //check that options are valid:
 string validateOptions
 (
-    ref long stringLength,
-    ref long minAlpha,
-    ref long maxAlpha,
-    ref long minLower,
-    ref long maxLower,
-    ref long minUpper,
-    ref long maxUpper,
-    ref long minNumeric,
-    ref long maxNumeric,
-    ref long minSpecial,
-    ref long maxSpecial,
-    ref long minWhitespace,
-    ref long maxWhitespace
+    ref ptrdiff_t stringLength,
+    ref ptrdiff_t minAlpha,
+    ref ptrdiff_t maxAlpha,
+    ref ptrdiff_t minLower,
+    ref ptrdiff_t maxLower,
+    ref ptrdiff_t minUpper,
+    ref ptrdiff_t maxUpper,
+    ref ptrdiff_t minNumeric,
+    ref ptrdiff_t maxNumeric,
+    ref ptrdiff_t minSpecial,
+    ref ptrdiff_t maxSpecial,
+    ref ptrdiff_t minWhitespace,
+    ref ptrdiff_t maxWhitespace
 )
 {
     if (maxAlpha != -1 && (minLower > -1 ? minLower : 0) + (minUpper > -1 ? minUpper : 0) > maxAlpha)
@@ -144,19 +144,19 @@ string validateOptions
 ///This is the function that actually generates the string. It does not do much input validation.
 dstring randString
 (
-    long stringLength,
-    long minAlpha,
-    long maxAlpha,
-    long minLower,
-    long maxLower,
-    long minUpper,
-    long maxUpper,
-    long minNumeric,
-    long maxNumeric,
-    long minSpecial,
-    long maxSpecial,
-    long minWhitespace,
-    long maxWhitespace,
+    ptrdiff_t stringLength,
+    ptrdiff_t minAlpha,
+    ptrdiff_t maxAlpha,
+    ptrdiff_t minLower,
+    ptrdiff_t maxLower,
+    ptrdiff_t minUpper,
+    ptrdiff_t maxUpper,
+    ptrdiff_t minNumeric,
+    ptrdiff_t maxNumeric,
+    ptrdiff_t minSpecial,
+    ptrdiff_t maxSpecial,
+    ptrdiff_t minWhitespace,
+    ptrdiff_t maxWhitespace,
     dstring charPool
 )
 {
@@ -221,11 +221,11 @@ dstring randString
     size_t whiteCount;
     size_t numericCount;
 
-    long[] openSlots = iota(0, stringLength).array;
+    ptrdiff_t[] openSlots = iota(0, stringLength).array;
 
     generated.length = stringLength;
-    long s;
-    long openSlotsIndex;
+    ptrdiff_t s;
+    ptrdiff_t openSlotsIndex;
 
     //populate the generated string to meet character type minimum requirements
     mixin(PopulateTypeString("lower", "Lower"));
@@ -286,19 +286,19 @@ void main(string[] args)
     import std.conv : to;
     import std.stdio : writeln;
 
-    long stringLength = -1;
-    long minAlpha = 0;
-    long maxAlpha = -1;
-    long minNumeric = 0;
-    long maxNumeric = -1;
-    long minLower = 0;
-    long maxLower = -1;
-    long minUpper = 0;
-    long maxUpper = -1;
-    long minWhitespace = 0;
-    long maxWhitespace = -1;
-    long minSpecial = 0;
-    long maxSpecial = -1;
+    ptrdiff_t stringLength = -1;
+    ptrdiff_t minAlpha = 0;
+    ptrdiff_t maxAlpha = -1;
+    ptrdiff_t minNumeric = 0;
+    ptrdiff_t maxNumeric = -1;
+    ptrdiff_t minLower = 0;
+    ptrdiff_t maxLower = -1;
+    ptrdiff_t minUpper = 0;
+    ptrdiff_t maxUpper = -1;
+    ptrdiff_t minWhitespace = 0;
+    ptrdiff_t maxWhitespace = -1;
+    ptrdiff_t minSpecial = 0;
+    ptrdiff_t maxSpecial = -1;
     string charPool;
 
     //get options
@@ -372,27 +372,27 @@ unittest //this needs to do more tests
     import std.stdio;
     import std.ascii;
 
-    long stringLength = 10;
-    long minAlpha = 2;
-    long maxAlpha = 10;
-    long minLower = 2;
-    long maxLower = 10;
-    long minUpper = 2;
-    long maxUpper = 10;
-    long minNumeric = 2;
-    long maxNumeric = 10;
-    long minSpecial = 2;
-    long maxSpecial = 10;
-    long minWhitespace = 2;
-    long maxWhitespace = 10;
+    ptrdiff_t stringLength = 10;
+    ptrdiff_t minAlpha = 2;
+    ptrdiff_t maxAlpha = 10;
+    ptrdiff_t minLower = 2;
+    ptrdiff_t maxLower = 10;
+    ptrdiff_t minUpper = 2;
+    ptrdiff_t maxUpper = 10;
+    ptrdiff_t minNumeric = 2;
+    ptrdiff_t maxNumeric = 10;
+    ptrdiff_t minSpecial = 2;
+    ptrdiff_t maxSpecial = 10;
+    ptrdiff_t minWhitespace = 2;
+    ptrdiff_t maxWhitespace = 10;
     dstring charPool = ""d;
 
-    long alphaCount;
-    long lowerCount;
-    long upperCount;
-    long numericCount;
-    long specialCount;
-    long whitespaceCount;
+    ptrdiff_t alphaCount;
+    ptrdiff_t lowerCount;
+    ptrdiff_t upperCount;
+    ptrdiff_t numericCount;
+    ptrdiff_t specialCount;
+    ptrdiff_t whitespaceCount;
 
     static foreach
     (
