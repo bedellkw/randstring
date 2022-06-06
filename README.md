@@ -6,12 +6,12 @@ This is written in the D programming language. To compile it go get a Dlang comp
 One of these for the command-line utility:
 - `dmd rs.d`
 - `ldc2 rs.d`
-- `gdc ./rs.d -o rs`
+- `gdc ./rs.d -o rs` //not recommended due to GDC version compatibility issues
 
 Or one of these for the library:
 - `dmd rs.d -lib`
 - `ldc2 rs.d -lib`
-- `gdc rs.d -shared -fPIC`
+- `gdc rs.d -shared -fPIC` //not recommended due to GDC version compatibility issues
 
 The command-line utility will check the provided arguments for validity and will sometimes infer values for options that are not provided by the user.
 
